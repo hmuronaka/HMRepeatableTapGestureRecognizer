@@ -8,7 +8,7 @@
 
 #import <UIKit/UIGestureRecognizerSubclass.h>
 #import "HMRepeatableTapGestureRecognizer.h"
-#import "HMTargetActionList.h"
+#import <HMTargetActionListFramework/HMTargetActionListFramework.h>
 
 @interface HMRepeatableTapGestureRecognizer()
 
@@ -43,7 +43,7 @@
         case UIGestureRecognizerStateFailed:
         case UIGestureRecognizerStatePossible:
         case UIGestureRecognizerStateCancelled:
-            [self.targetActionList fireWithObject:self];
+            [self.targetActionList fireWithSender:self];
             break;
         case UIGestureRecognizerStateChanged:
             break;
@@ -103,7 +103,7 @@
 
 -(void)repeatAction:(NSTimer*)timer {
     self.state = UIGestureRecognizerStateChanged;
-    [self.targetActionList fireWithObject:self];
+    [self.targetActionList fireWithSender:self];
 }
 
 -(void)cancelTimers {
