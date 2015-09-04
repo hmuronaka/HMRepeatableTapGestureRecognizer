@@ -14,6 +14,9 @@
 		D62F02F61B982CF900F5FA01 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D62F02F51B982CF900F5FA01 /* Images.xcassets */; };
 		D62F02F91B982CF900F5FA01 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D62F02F71B982CF900F5FA01 /* LaunchScreen.xib */; };
 		D62F03051B982CF900F5FA01 /* HMRepeatableTapGestureRecognizerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D62F03041B982CF900F5FA01 /* HMRepeatableTapGestureRecognizerTests.m */; };
+		D62F03111B982F4300F5FA01 /* HMRepeatableTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D62F03101B982F4300F5FA01 /* HMRepeatableTapGestureRecognizer.m */; };
+		D6632A841B99002D00709E36 /* HMWeakTargetAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D6632A831B99002D00709E36 /* HMWeakTargetAction.m */; };
+		D6632A871B99036400709E36 /* HMTargetActionList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6632A861B99036400709E36 /* HMTargetActionList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,12 @@
 		D62F02FE1B982CF900F5FA01 /* HMRepeatableTapGestureRecognizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HMRepeatableTapGestureRecognizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D62F03031B982CF900F5FA01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D62F03041B982CF900F5FA01 /* HMRepeatableTapGestureRecognizerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMRepeatableTapGestureRecognizerTests.m; sourceTree = "<group>"; };
+		D62F030F1B982F4300F5FA01 /* HMRepeatableTapGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HMRepeatableTapGestureRecognizer.h; path = HMRepeatableTapGestureRecognizer/Class/HMRepeatableTapGestureRecognizer.h; sourceTree = "<group>"; };
+		D62F03101B982F4300F5FA01 /* HMRepeatableTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HMRepeatableTapGestureRecognizer.m; path = HMRepeatableTapGestureRecognizer/Class/HMRepeatableTapGestureRecognizer.m; sourceTree = "<group>"; };
+		D6632A821B99002D00709E36 /* HMWeakTargetAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HMWeakTargetAction.h; path = HMRepeatableTapGestureRecognizer/Lib/HMWeakTargetAction.h; sourceTree = "<group>"; };
+		D6632A831B99002D00709E36 /* HMWeakTargetAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HMWeakTargetAction.m; path = HMRepeatableTapGestureRecognizer/Lib/HMWeakTargetAction.m; sourceTree = "<group>"; };
+		D6632A851B99036400709E36 /* HMTargetActionList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HMTargetActionList.h; path = HMRepeatableTapGestureRecognizer/Lib/HMTargetActionList.h; sourceTree = "<group>"; };
+		D6632A861B99036400709E36 /* HMTargetActionList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HMTargetActionList.m; path = HMRepeatableTapGestureRecognizer/Lib/HMTargetActionList.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +72,8 @@
 		D62F02DC1B982CF900F5FA01 = {
 			isa = PBXGroup;
 			children = (
+				D6632A811B98FF9600709E36 /* Lib */,
+				D62F030E1B982D0600F5FA01 /* Class */,
 				D62F02E71B982CF900F5FA01 /* HMRepeatableTapGestureRecognizer */,
 				D62F03011B982CF900F5FA01 /* HMRepeatableTapGestureRecognizerTests */,
 				D62F02E61B982CF900F5FA01 /* Products */,
@@ -117,6 +128,26 @@
 				D62F03031B982CF900F5FA01 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D62F030E1B982D0600F5FA01 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				D62F030F1B982F4300F5FA01 /* HMRepeatableTapGestureRecognizer.h */,
+				D62F03101B982F4300F5FA01 /* HMRepeatableTapGestureRecognizer.m */,
+			);
+			name = Class;
+			sourceTree = "<group>";
+		};
+		D6632A811B98FF9600709E36 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				D6632A821B99002D00709E36 /* HMWeakTargetAction.h */,
+				D6632A831B99002D00709E36 /* HMWeakTargetAction.m */,
+				D6632A851B99036400709E36 /* HMTargetActionList.h */,
+				D6632A861B99036400709E36 /* HMTargetActionList.m */,
+			);
+			name = Lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +250,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6632A841B99002D00709E36 /* HMWeakTargetAction.m in Sources */,
+				D6632A871B99036400709E36 /* HMTargetActionList.m in Sources */,
 				D62F02F11B982CF900F5FA01 /* ViewController.m in Sources */,
 				D62F02EE1B982CF900F5FA01 /* AppDelegate.m in Sources */,
 				D62F02EB1B982CF900F5FA01 /* main.m in Sources */,
+				D62F03111B982F4300F5FA01 /* HMRepeatableTapGestureRecognizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +383,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = HMRepeatableTapGestureRecognizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -359,6 +397,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = HMRepeatableTapGestureRecognizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -418,6 +460,7 @@
 				D62F030A1B982CF900F5FA01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D62F030B1B982CF900F5FA01 /* Build configuration list for PBXNativeTarget "HMRepeatableTapGestureRecognizerTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +469,7 @@
 				D62F030D1B982CF900F5FA01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
