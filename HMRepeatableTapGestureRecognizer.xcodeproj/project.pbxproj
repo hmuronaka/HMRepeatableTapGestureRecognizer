@@ -85,7 +85,6 @@
 			isa = PBXGroup;
 			children = (
 				D64085E41B99D30F00E94A25 /* HMTargetActionListFramework.framework */,
-				D6632A811B98FF9600709E36 /* Lib */,
 				D62F030E1B982D0600F5FA01 /* Class */,
 				D62F02E71B982CF900F5FA01 /* HMRepeatableTapGestureRecognizer */,
 				D62F03011B982CF900F5FA01 /* HMRepeatableTapGestureRecognizerTests */,
@@ -150,13 +149,6 @@
 				D62F03101B982F4300F5FA01 /* HMRepeatableTapGestureRecognizer.m */,
 			);
 			name = Class;
-			sourceTree = "<group>";
-		};
-		D6632A811B98FF9600709E36 /* Lib */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

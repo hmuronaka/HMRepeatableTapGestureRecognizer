@@ -10,6 +10,10 @@
 
 @interface HMRepeatableTapGestureRecognizer : UIGestureRecognizer
 
+@property(nonatomic, assign) NSTimeInterval minimumPressDuration;
+@property(nonatomic, assign) NSTimeInterval repeatInterval;
+@property(nonatomic, assign) NSInteger numberOfTouchesRequired;
+
 -(instancetype)initWithTarget:(id)target action:(SEL)action;
 
 @end

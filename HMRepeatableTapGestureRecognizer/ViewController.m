@@ -19,16 +19,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(50, 50, 100, 100)];
+    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(50, 50, 200, 200)];
     view.backgroundColor = [UIColor greenColor];
     view.userInteractionEnabled = YES;
     
     [self.view addSubview:view];
     
     HMRepeatableTapGestureRecognizer* gesture = [[HMRepeatableTapGestureRecognizer alloc] initWithTarget:self  action:@selector(tappedView:)];
-//    gesture.minimumPressDuration = 0.5;
-//    gesture.repeatDuration = 0.2;
-//    gesture.numberOfTouchesRequired
+    gesture.numberOfTouchesRequired = 1;
+    gesture.minimumPressDuration = 1.0;
+    gesture.repeatInterval = 0.5;
     [view addGestureRecognizer:gesture];
 }
 

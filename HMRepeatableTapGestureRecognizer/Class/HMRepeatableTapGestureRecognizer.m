@@ -15,6 +15,7 @@
 @property(nonatomic, strong) NSTimer* longPressTimer;
 @property(nonatomic, strong) NSTimer* repeatActionTimer;
 @property(nonatomic, strong) HMTargetActionList* targetActionList;
+@property(nonatomic, assign) NSInteger currentTouchesCount;
 
 @end
 
@@ -27,6 +28,11 @@
     if( self ) {
         self.targetActionList = [HMTargetActionList new];
         [self.targetActionList addTarget:target action:action];
+        
+        _minimumPressDuration = 0.5;
+        _repeatInterval = 0.2;
+        _numberOfTouchesRequired = 1;
+        _currentTouchesCount = 0;
     }
     
     return self;
@@ -39,11 +45,15 @@
 -(void)handleFromSuper:(UIGestureRecognizer*)gesture {
     switch(gesture.state) {
         case UIGestureRecognizerStateBegan:
-        case UIGestureRecognizerStateEnded:
         case UIGestureRecognizerStateFailed:
         case UIGestureRecognizerStatePossible:
         case UIGestureRecognizerStateCancelled:
             [self.targetActionList fireWithSender:self];
+            break;
+        case UIGestureRecognizerStateEnded:
+            if( self.currentTouchesCount == self.numberOfTouchesRequired ) {
+                [self.targetActionList fireWithSender:self];
+            }
             break;
         case UIGestureRecognizerStateChanged:
             break;
@@ -65,15 +75,30 @@
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self cancelTimers];
+    self.currentTouchesCount += touches.count;
+    
+    if( self.currentTouchesCount < self.numberOfTouchesRequired ) {
+        return;
+    } else if( self.currentTouchesCount > self.numberOfTouchesRequired ) {
+        if ( self.state == UIGestureRecognizerStatePossible ) {
+            self.state = UIGestureRecognizerStateFailed;
+        } else {
+            self.state = UIGestureRecognizerStateCancelled;
+        }
+        return;
+    }
     
     [super touchesBegan:touches withEvent:event];
     self.state = UIGestureRecognizerStateBegan;
-    self.longPressTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(startRepeatAction:) userInfo:nil repeats:NO];
+    
+    if( self.minimumPressDuration > 0.0 ) {
+        self.longPressTimer = [NSTimer scheduledTimerWithTimeInterval:self.minimumPressDuration target:self selector:@selector(startRepeatAction:) userInfo:nil repeats:NO];
+    } else {
+        [self startRepeatAction:nil];
+    }
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self cancelTimers];
     [super touchesEnded:touches withEvent:event];
     self.state = UIGestureRecognizerStateEnded;
 }
@@ -84,12 +109,13 @@
 
 -(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesCancelled:touches withEvent:event];
-    [self cancelTimers];
 }
 
 -(void)reset {
-    [super reset];
+    self.currentTouchesCount = 0;
     [self cancelTimers];
+    [super reset];
+    
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -97,8 +123,9 @@
 #pragma mark timer
 
 -(void)startRepeatAction:(NSTimer*)timer {
-    
-    self.repeatActionTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(repeatAction:) userInfo:nil repeats:YES];
+    if( self.repeatInterval > 0.0 ) {
+        self.repeatActionTimer = [NSTimer scheduledTimerWithTimeInterval:self.repeatInterval target:self selector:@selector(repeatAction:) userInfo:nil repeats:YES];
+    }
 }
 
 -(void)repeatAction:(NSTimer*)timer {
@@ -107,14 +134,10 @@
 }
 
 -(void)cancelTimers {
-    if( [self.longPressTimer isValid] ) {
-        [self.longPressTimer invalidate];
-    }
+    [self.longPressTimer invalidate];
     self.longPressTimer = nil;
     
-    if( [self.repeatActionTimer isValid] ) {
-        [self.repeatActionTimer invalidate];
-    }
+    [self.repeatActionTimer invalidate];
     self.repeatActionTimer = nil;
 }
 
