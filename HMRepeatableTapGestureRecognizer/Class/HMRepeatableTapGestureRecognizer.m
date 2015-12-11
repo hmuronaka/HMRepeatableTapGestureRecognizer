@@ -52,7 +52,7 @@
             break;
         case UIGestureRecognizerStateEnded:
             if( self.currentTouchesCount == self.numberOfTouchesRequired ) {
-                [self.targetActionList fireWithSender:self];
+//                [self.targetActionList fireWithSender:self];
             }
             break;
         case UIGestureRecognizerStateChanged:
