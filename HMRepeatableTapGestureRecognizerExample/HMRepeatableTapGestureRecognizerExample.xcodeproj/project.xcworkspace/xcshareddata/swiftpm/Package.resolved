@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "HMTargetActionList",
+        "repositoryURL": "https://github.com/hmuronaka/HMTargetActionList",
+        "state": {
+          "branch": null,
+          "revision": "02a09b4e197b6bed3473a9f117171d97845a2494",
+          "version": "2.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
