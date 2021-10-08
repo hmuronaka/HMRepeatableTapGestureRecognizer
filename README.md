@@ -19,6 +19,8 @@ func setupGesture() {
 }
 ```
 
+[Example: ViewController.swift](https://github.com/hmuronaka/HMRepeatableTapGestureRecognizer/blob/main/HMRepeatableTapGestureRecognizerExample/HMRepeatableTapGestureRecognizerExample/ViewController.swift#L39)
+
 # LICENSE
 
 MIT
